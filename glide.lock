@@ -1,0 +1,16 @@
+hash: 92400f491b923a6e7f4f4beb4b0126805dd82d635b6fa2b2375b72ba4fa72fe0
+updated: 2018-05-03T13:04:27.727778+08:00
+imports:
+- name: github.com/gin-gonic/gin
+  version: 2dae550eb5392006a4582ce9c90016a9b5a74e8b
+- name: github.com/joho/godotenv
+  version: a01a834e1654b4c9ca5b3ad05159445cc9c7ad08
+- name: github.com/pborman/uuid
+  version: a97ce2ca70fa5a848076093f05e639a89ca34d06
+- name: github.com/sirupsen/logrus
+  version: d682213848ed68c0a260ca37d6dd5ace8423f5ba
+- name: github.com/stretchr/testify
+  version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
+  subpackages:
+  - assert
+testImports: []
