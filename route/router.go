@@ -6,6 +6,5 @@ import (
 )
 
 func InitRouter(router *gin.Engine) {
-	rUser := router.Group("user")
-	user.InitController(rUser)
+	user.InitController(router.Group("user"))
 }
