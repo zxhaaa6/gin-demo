@@ -20,17 +20,20 @@ type Mongodb struct {
 
 var config *Config
 
-func GetConf() *Config {
-
+func InitConf() *Config {
 	configFile, err := ioutil.ReadFile("config/config.yml")
 	if err != nil {
 		log.Printf("yamlFile.Get err   #%v ", err)
 	}
-	err = yaml.Unmarshal(configFile, &config)
 
+	err = yaml.Unmarshal(configFile, &config)
 	if err != nil {
 		log.Fatalf("Unmarshal: %v", err)
 	}
 
+	return config
+}
+
+func GetConf() *Config {
 	return config
 }

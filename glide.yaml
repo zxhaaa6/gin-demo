@@ -2,13 +2,14 @@ package: github.com/zxhaaa6/gin-demo
 import:
 - package: github.com/gin-gonic/gin
   version: v1.0
+- package: github.com/joho/godotenv
+  version: v1
 - package: github.com/sirupsen/logrus
   version: v1.0.4
-- package: github.com/pborman/uuid
-  version: v1.0
+- package: gopkg.in/mgo.v2
 - package: github.com/stretchr/testify
   version: v1.1.4
   subpackages:
   - assert
-- package: github.com/joho/godotenv
-  version: v1
+- package: github.com/pborman/uuid
+  version: v1.0
