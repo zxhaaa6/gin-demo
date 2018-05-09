@@ -3,4 +3,4 @@ port: 3000
 mongodb:
   host: 'localhost'
   port: '27017'
-  db: 'Guqin'
+  db: 'test-poplar-db'

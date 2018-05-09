@@ -2,7 +2,7 @@ package route
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/zxhaaa6/gin-demo/model/user"
+	"github.com/zxhaaa6/gin-demo/module/user"
 )
 
 func InitRouter(router *gin.Engine) {
