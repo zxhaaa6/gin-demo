@@ -6,18 +6,17 @@ import (
 )
 
 type Controller struct {
+	UserService Service
 }
-
-var service = Service{}
 
 func InitController(route *gin.RouterGroup) {
 	controller := Controller{}
-
+	controller.UserService = InitService()
 	route.GET("/all", controller.getAllUsers)
 }
 
 func (r *Controller) getAllUsers(c *gin.Context) {
-	users, err := service.getAllUsers()
+	users, err := r.UserService.getAllUsers()
 	if err != nil {
 		log.Fatal("err: ", err)
 	}
