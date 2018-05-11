@@ -3,6 +3,7 @@ package user
 import (
 	"github.com/gin-gonic/gin"
 	"log"
+	"github.com/zxhaaa6/gin-demo/middleware"
 )
 
 type Controller struct {
@@ -22,7 +23,7 @@ func (r *Controller) getOneUser(c *gin.Context) {
 	if err != nil {
 		log.Println("err: ", err)
 	}
-	c.JSON(200, user)
+	c.JSON(200, middleware.GenJson(true, 200, "", user))
 }
 
 func (r *Controller) getAllUsers(c *gin.Context) {
@@ -31,5 +32,5 @@ func (r *Controller) getAllUsers(c *gin.Context) {
 		log.Println("err: ", err)
 	}
 
-	c.JSON(200, users)
+	c.JSON(200, middleware.GenJson(true, 200, "", users))
 }
