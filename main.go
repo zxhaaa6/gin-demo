@@ -15,11 +15,16 @@ func main() {
 	system.ConnectMongodbServer()
 
 	gin.SetMode(util.GetEnv("GIN_MODE"))
-	app := gin.Default()
+
+	app := gin.New()
+
+	app.Use(gin.Logger())
+	app.Use(gin.Recovery())
 
 	route.InitRouter(app)
 
 	port := config.Port
+
 	log.Println("[GIN]Service Listening on port:", port)
 	app.Run(":" + port)
 }

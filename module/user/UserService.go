@@ -12,6 +12,10 @@ func InitService() Service {
 	return service
 }
 
+func (r *Service) findUserById(id string) (model.User, error) {
+	return r.UserDao.findUserById(id)
+}
+
 func (r *Service) getAllUsers() ([]model.User, error) {
 	return r.UserDao.getAllUsers()
 }

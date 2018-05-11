@@ -17,6 +17,12 @@ func InitDao() Dao {
 	return dao
 }
 
+func (r *Dao) findUserById(id string) (model.User, error) {
+	var user model.User
+	err := r.Collection.Find(bson.M{"_id": bson.ObjectIdHex(id)}).One(&user)
+	return user, err
+}
+
 func (r *Dao) getAllUsers() ([]model.User, error) {
 	var users []model.User
 	err := r.Collection.Find(bson.M{}).All(&users)

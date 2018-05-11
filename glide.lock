@@ -1,11 +1,13 @@
-hash: 61d2559eb9e7fd3a096a24943b173e0ef910636034132031c5d5f8cd1a7363ca
-updated: 2018-05-08T20:41:52.298764+08:00
+hash: 341255e8617bedd455ec26f322c5d9558b902a995b8bc197ec163e7d80389359
+updated: 2018-05-10T17:43:11.189135+08:00
 imports:
 - name: github.com/gin-gonic/gin
   version: 2dae550eb5392006a4582ce9c90016a9b5a74e8b
   subpackages:
   - binding
   - render
+- name: github.com/go-redis/redis
+  version: 12c0262c7506392ba615d07f566d0a9acea5dcf6
 - name: github.com/golang/protobuf
   version: 2402d76f3d41f928c7902a765dfc872356dd3aad
   subpackages:
