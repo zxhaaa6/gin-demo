@@ -5,12 +5,15 @@ import (
 	"github.com/zxhaaa6/gin-demo/route"
 	"github.com/gin-gonic/gin"
 	"github.com/zxhaaa6/gin-demo/system"
-	"log"
+	log "github.com/sirupsen/logrus"
+	"github.com/zxhaaa6/gin-demo/middleware"
 )
 
 func main() {
 	config := util.InitConf()
 	util.LoadEnv()
+
+	middleware.InitLog()
 
 	system.ConnectMongodbServer()
 
@@ -25,6 +28,6 @@ func main() {
 
 	port := config.Port
 
-	log.Println("[GIN]Service Listening on port:", port)
+	log.Infoln("[GIN]Service Listening on port:", port)
 	app.Run(":" + port)
 }

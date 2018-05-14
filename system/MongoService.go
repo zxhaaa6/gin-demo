@@ -3,7 +3,7 @@ package system
 import (
 	"github.com/zxhaaa6/gin-demo/util"
 	"gopkg.in/mgo.v2"
-	"log"
+	log "github.com/sirupsen/logrus"
 )
 
 var db *mgo.Database
@@ -13,11 +13,11 @@ func ConnectMongodbServer() {
 	mongoUrl := "mongodb://" + config.Mongodb.Host + ":" + config.Mongodb.Port
 	session, err := mgo.Dial(mongoUrl)
 	if err != nil {
-		log.Println("[Mongodb]connect DB server fatal err: ", err)
+		log.Fatal("[Mongodb]connect DB server fatal err: ", err)
 		panic(err)
 	}
 	db = session.DB(config.Mongodb.DB)
-	log.Println("[Mongodb]DB connection has been established successfully.")
+	log.Info("[Mongodb]DB connection has been established successfully.")
 }
 
 func GetDB() *mgo.Database {
