@@ -10,24 +10,31 @@ import (
 )
 
 func main() {
+	// ============== init < config | env | log > ===============
 	config := util.InitConf()
 	util.LoadEnv()
-
 	middleware.InitLog()
 
+	// ================= connect mongodb | etc. =================
 	system.ConnectMongodbServer()
 
+	// ====================== init GIN APP ======================
 	gin.SetMode(util.GetEnv("GIN_MODE"))
 
 	app := gin.New()
 
-	app.Use(gin.Logger())
+	// ======================= middleware =======================
+	if util.GetEnv("GIN_ENV") != "production" {
+		app.Use(gin.Logger())
+	}
 	app.Use(gin.Recovery())
 
+	// ========================= router =========================
 	route.InitRouter(app)
 
+	// ======================== startUp =========================
 	port := config.Port
-
 	log.Infoln("[GIN]Service Listening on port:", port)
+
 	app.Run(":" + port)
 }

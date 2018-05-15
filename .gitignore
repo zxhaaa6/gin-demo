@@ -19,5 +19,8 @@
 # dependence
 vendor/
 
+# log
+log/
+
 # test
 test/
